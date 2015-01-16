@@ -1,0 +1,40 @@
+package com.hxq.daka;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class DbHelper extends SQLiteOpenHelper {
+
+	public static final String DB_NAME = "com.hxq.daka.db";
+	public static final int DB_VERSION = 1;
+	
+	public static final String TABLE_NAME = "records";
+	public static final String COLUMN_ID = "_id";
+	public static final String COLUMN_YEAR = "year";
+	public static final String COLUMN_MONTH = "month";
+	public static final String COLUMN_DAY_OF_MONTH = "day_of_month";
+	public static final String COLUMN_MISSION_ID = "mission_id";
+	public static final String COLUMN_MISSION_INFO = "mission_info";
+	
+	public DbHelper(Context context) {
+		super(context, DB_NAME, null, DB_VERSION);
+	}
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		db.execSQL("CREATE TABLE IF NOT EXISTS" + TABLE_NAME + "(" +
+				COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT" + 
+				COLUMN_YEAR + "INTEGER" + 
+				COLUMN_MONTH + "INTEGER" + 
+				COLUMN_DAY_OF_MONTH + "INTEGER" + 
+				COLUMN_MISSION_ID + "INTEGER" + 
+				COLUMN_MISSION_INFO + "TEXT" +
+				")"
+				);
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+	}
+
+}

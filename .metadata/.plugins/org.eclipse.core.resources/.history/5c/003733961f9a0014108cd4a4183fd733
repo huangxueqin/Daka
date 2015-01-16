@@ -1,0 +1,78 @@
+package com.hxq.daka;
+
+import java.util.Calendar;
+
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.util.SparseArray;
+
+public class MissionManager {
+	private int maxId;
+	private SparseArray<MissionInfo> missions;
+	private static MissionManager manager;
+	
+	public static MissionManager getInstance(Context context) {
+		if(manager == null) {
+			manager = new MissionManager(context);
+		}
+		return manager;
+	}
+	
+	private MissionManager(Context context) {
+		Resources res = context.getResources();
+		int c1 = res.getColor(R.color.default_color1);
+		int c2 = res.getColor(R.color.default_color2);
+		int c3 = res.getColor(R.color.default_color3);
+		missions.put(maxId, new MissionInfo(maxId, "Jagger", c1));
+		maxId++;
+		missions.put(maxId, new MissionInfo(maxId, "Ball", c2));
+		maxId++;
+		missions.put(maxId, new MissionInfo(maxId, "Swimming", c3));
+		maxId++;
+	}
+	
+	private static class MissionInfo {
+		int id;
+		String info;
+		int color;
+		MissionInfo(int id, String info, int color) {
+			this.id = id;
+			this.info = info;
+			this.color = color;
+		}
+		
+		public int getId() { return id; };
+		public String getInfo() { return info; }
+		public int getColor() { return color; }
+	}
+	
+	
+	public static class Mission {
+		private int id;
+		private int year;
+		private int month;
+		private int day_of_month;
+		
+		public Mission(int id, Calendar calendar) {
+			this.id = id;
+			this.year = calendar.get(Calendar.YEAR);
+			this.month = calendar.get(Calendar.MONTH);
+			this.day_of_month = calendar.get(Calendar.DAY_OF_MONTH);
+		}
+		
+		public int getId() {
+			return id;
+		}
+		public int getYear() {
+			return year;
+		}
+		public int getMonth() {
+			return month;
+		}
+		public int getDayOfMonth() {
+			return day_of_month;
+		}
+		
+	}
+}

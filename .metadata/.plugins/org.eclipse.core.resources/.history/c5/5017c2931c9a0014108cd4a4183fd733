@@ -1,0 +1,38 @@
+package com.hxq.daka;
+
+import java.util.Calendar;
+
+import android.graphics.Color;
+
+public class MissionManager {
+	
+	private int id;
+	private Color color;
+	private int year;
+	private int month;
+	private int day_of_month;
+	
+	public MissionManager(int id, Color color, Calendar calendar) {
+		this.id = id;
+		this.color = color;
+		this.year = calendar.get(Calendar.YEAR);
+		this.month = calendar.get(Calendar.MONTH);
+		this.day_of_month = calendar.get(Calendar.DAY_OF_MONTH);
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public Color getColor() {
+		return color;
+	}
+	public int getYear() {
+		return year;
+	}
+	public int getMonth() {
+		return month;
+	}
+	public int getDayOfMonth() {
+		return day_of_month;
+	}
+}

@@ -1,0 +1,44 @@
+1421040418869	Rename type 'Mission'
+1421050829698	Copy file
+1421050846564	Rename resource 'Copy of calendar_bg_selector2.xml'
+1421052012411	Rename field 'today'
+1421066159230	Rename resource 'Athletics_Icon.png'
+1421066171981	Rename resource 'Swimming_Icon.png'
+1421066190445	Rename resource 'Badminton_Icon.png'
+1421066262230	Rename resource 'Swimming.png'
+1421068058347	Delete element
+1421068061148	Delete element
+1421068063440	Delete element
+1421068071238	Rename resource 'blue_40_running.png'
+1421068090061	Rename resource 'blue_40_swimming.png'
+1421068142230	Rename resource 'blue_40_core_strengthening.png'
+1421068611606	Move file
+1421068613803	Move file
+1421068615545	Move file
+1421068679171	Rename resource 'blue_40_core_strengthening.png'
+1421068700095	Rename resource 'blue_40_swimming.png'
+1421068721924	Rename resource 'blue_40_running.png'
+1421235743519	Delete element
+1421237851481	Delete element
+1421238976227	Delete element
+1421239522375	Delete element
+1421240996236	Rename resource 'confirm_button_style.xml'
+1421241008775	Copy file
+1421241028697	Rename resource 'Copy of confirm_button_active_press_style.xml'
+1421241228616	Delete element
+1421241231618	Delete element
+1421243890927	Rename resource 'switch_in.xml'
+1421243910048	Rename resource 'switch_out.xml'
+1421243927062	Copy file
+1421243941925	Copy file
+1421245741876	Rename resource 'back_button_normal_down.9.png'
+1421245760048	Rename resource 'back_button_normal.9.png'
+1421250957566	Delete element
+1421292323171	Rename type 'DbHelper'
+1421292340705	Rename field 'mDBHelper'
+1421292386094	Rename field 'mChooseList'
+1421292421278	Rename field 'mLastChoosedMissonId'
+1421292440317	Rename field 'sp'
+1421302310458	Rename local variable 'lastOpenYear'
+1421302319005	Rename local variable 'lastOpenMonth'
+1421302328236	Rename local variable 'lastOpenDay'

@@ -1,0 +1,6 @@
+1420871442119	Rename type 'CalenderCellView'
+1420898108319	Rename type 'CalendarBrowserView'
+1420898260283	Rename type 'CalendarSwitcher'
+1420903719010	Rename field 'currentMonth'
+1420903729131	Rename field 'previousMonth'
+1420903735938	Rename field 'nextMonth'

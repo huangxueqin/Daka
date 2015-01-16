@@ -1,0 +1,45 @@
+package com.hxq.daka;
+
+import java.util.Calendar;
+
+import android.graphics.Color;
+import android.util.SparseArray;
+
+public class MissionManager {
+	private int maxId = 0;
+	private SparseArray<MissionInfo> missions;
+	
+	private static class MissionInfo {
+		int id;
+		String info;
+		Color color;
+	}
+	
+	
+	public static class Mission {
+		private int id;
+		private int year;
+		private int month;
+		private int day_of_month;
+		
+		public Mission(int id, Calendar calendar) {
+			this.id = id;
+			this.year = calendar.get(Calendar.YEAR);
+			this.month = calendar.get(Calendar.MONTH);
+			this.day_of_month = calendar.get(Calendar.DAY_OF_MONTH);
+		}
+		
+		public int getId() {
+			return id;
+		}
+		public int getYear() {
+			return year;
+		}
+		public int getMonth() {
+			return month;
+		}
+		public int getDayOfMonth() {
+			return day_of_month;
+		}
+	}
+}

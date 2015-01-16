@@ -1,0 +1,18 @@
+package com.hxq.daka;
+
+import android.graphics.Color;
+
+public class Mission {
+	private int id;
+	private String info;
+	private Color color;
+	private int year;
+	private int month;
+	private int day_of_month;
+	
+	public Mission(int id, String info, Color color) {
+		this.id = id;
+		this.info = info;
+		this.color = color;
+	}
+}

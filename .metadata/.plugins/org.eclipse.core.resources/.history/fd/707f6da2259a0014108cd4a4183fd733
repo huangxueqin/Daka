@@ -1,0 +1,83 @@
+package com.hxq.daka;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.SparseArray;
+
+public class DbHelper extends SQLiteOpenHelper {
+
+	public static final String DB_NAME = "com.hxq.daka.db";
+	public static final int DB_VERSION = 1;
+	
+	public static final String TABLE_NAME = "records";
+	public static final String COLUMN_ID = "_id";
+	public static final String COLUMN_YEAR = "year";
+	public static final String COLUMN_MONTH = "month";
+	public static final String COLUMN_DAY_OF_MONTH = "day_of_month";
+	public static final String COLUMN_MISSION_ID = "mission_id";
+	public static final String COLUMN_MISSION_INFO = "mission_info";
+	
+	public DbHelper(Context context) {
+		super(context, DB_NAME, null, DB_VERSION);
+	}
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		db.execSQL("CREATE TABLE IF NOT EXISTS" + TABLE_NAME + "(" +
+				COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT" + 
+				COLUMN_YEAR + "INTEGER" + 
+				COLUMN_MONTH + "INTEGER" + 
+				COLUMN_DAY_OF_MONTH + "INTEGER" + 
+			 	COLUMN_MISSION_ID + "INTEGER" + 
+				COLUMN_MISSION_INFO + "TEXT" +
+				")"
+				);
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+	}
+	
+	public void addMission(MissionManager.Mission mission) {
+		ContentValues values = new ContentValues();
+		values.put(COLUMN_YEAR, mission.getYear());
+		values.put(COLUMN_MONTH, mission.getMonth());
+		values.put(COLUMN_DAY_OF_MONTH, mission.getDayOfMonth());
+		values.put(COLUMN_MISSION_ID, mission.getId());
+		values.put(COLUMN_MISSION_INFO, mission.getInfo());
+		SQLiteDatabase db = getWritableDatabase();
+		db.insert(TABLE_NAME, null, values);
+	}
+	
+	public MissionManager.Mission queryMissionByDate(MissionManager manager, int year, int month, int day_of_month) {
+		String selection = COLUMN_YEAR + "=? and " + COLUMN_MONTH + "=? and " + COLUMN_DAY_OF_MONTH + "=?";
+		String[] selectionArgs = new String[] { String.valueOf(year), String.valueOf(month), 
+				String.valueOf(day_of_month) };
+		String[] columns = { COLUMN_MISSION_ID };
+		SQLiteDatabase db = getReadableDatabase();
+		Cursor c = db.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null);
+		if(c.moveToNext()) {
+			int id = c.getInt(c.getColumnIndex(COLUMN_MISSION_ID));
+			return manager.getMission(id, year, month, day_of_month);
+		}
+		else 
+			return null;
+	}
+	
+	public SparseArray<MissionManager.Mission> queryMissionInSingleMonth(MissionManager manager, int year, int month) {
+		String selection = COLUMN_YEAR + "=? and " + COLUMN_MONTH + "=?";
+		String[] selectionArgs = new String[] { String.valueOf(year), String.valueOf(month) };
+		String[] columns = { COLUMN_MISSION_ID, COLUMN_DAY_OF_MONTH };
+		SQLiteDatabase db = getReadableDatabase();
+		Cursor c = db.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null);
+		SparseArray<MissionManager.Mission> missionArray = new SparseArray<MissionManager.Mission>();
+		while(c.moveToNext()) {
+			int id = c.getInt(c.getColumnIndex(COLUMN_MISSION_ID));
+			int day = c.getInt(c.getColumnIndex(COLUMN_DAY_OF_MONTH));
+			missionArray.put(day, manager.getMission(id, year, month, day));
+		}
+	}
+
+}

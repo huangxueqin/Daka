@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Daka</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="day_name_format">EEE</string>
+    <string name="invalid_date">Date must be between %1$s and %2$s.</string>
+    <string name="month_name_format">MMMM yyyy</string>
+    <string name="sun">周日</string>
+    <string name="mon">周一</string>
+    <string name="tue">周二</string>
+    <string name="wen">周三</string>
+    <string name="thr">周四</string>
+    <string name="fri">周五</string>
+    <string name="sat">周六</string>
+    
+    <string name="btn_prev_txt">PREV</string>
+    <string name="btn_next_txt">NEXT</string>
+    <string name="btn_show_record_txt">Start Activity</string>
+    <string name="btn_confirm">确定</string>
+
+    <string-array name="str_sport_lis">
+        <item>跑步</item>
+        <item>游泳</item>
+        <item>打球</item>
+        <item>平板支撑</item>
+    </string-array>
+    <string name="str_prompt">今天完成了什么项目呢： </string>
+    
+    <string name="str_sample_prompt">content: </string>
+    <string-array name="str_sample_lis">
+        <item>item1</item>
+        <item>item2</item>
+        <item>item3</item>
+        <item>item4</item>
+    </string-array>
+    
+    <string name="record_activity_label">记录</string>
+    
+    
+    <string name="menu_goto_record">查看记录</string>
+</resources>

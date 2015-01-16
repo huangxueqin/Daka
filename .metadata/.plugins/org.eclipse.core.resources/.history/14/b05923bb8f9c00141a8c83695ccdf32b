@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/id_swich_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/id_btn_prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/calendar_button"/>
+        
+        <TextView
+            android:id="@+id/id_title"
+            style="@style/CalendarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/calendar_month_title_bottommargin"
+            android:layout_marginTop="@dimen/calendar_month_topmargin"
+            android:layout_toRightOf="@id/id_btn_prev"
+            android:gravity="center_horizontal"
+            android:textColor="@color/calendar_text_active"
+            android:ems="6" />
+
+        <ImageButton
+            android:id="@+id/id_btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="right"
+            android:layout_toRightOf="@id/id_title"
+            android:scaleX="-1"
+            android:background="@drawable/calendar_button" />
+    </RelativeLayout>
+
+    <ViewSwitcher
+        android:id="@+id/id_view_switcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_swich_bar"
+        android:layout_marginTop="@dimen/calendar_month_topmargin"
+        android:inAnimation="@anim/switch_in_right"
+        android:outAnimation="@anim/switch_out_right" />
+    
+    <TextView 
+        android:id="@+id/id_tv_show_cell_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:background="@drawable/float_text_bg"
+        android:textColor="@color/calendar_text_active"
+        />
+
+</RelativeLayout>

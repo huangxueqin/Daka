@@ -1,0 +1,24 @@
+package com.hxq.java.test;
+
+import java.util.Calendar;
+import java.util.Date;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(new Date());
+		int firstDayOfWeek = calendar.getFirstDayOfWeek();
+		int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+		calendar.add(Calendar.DATE, 2);
+		int dayOfWeekInMonth = calendar.get(Calendar.DAY_OF_WEEK_IN_MONTH);
+		int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+		int dayOfYear = calendar.get(Calendar.DAY_OF_YEAR);
+		System.out.println("First day of Week of this Calendar is: " + firstDayOfWeek);
+		System.out.println("Day of Week of this Calendar is: " + dayOfWeek);
+		System.out.println("Day of WeekInMonth of this Calendar is: " + dayOfWeekInMonth);
+		System.out.println("Day of Month of this Calendar is: " + dayOfMonth);
+		System.out.println("Day of Year of this Calendar is: " + dayOfYear);
+	}
+
+}
